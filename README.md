@@ -15,4 +15,4 @@ Falsification-first quant research. One confirmed edge; everything else honestly
 
 The arc in one line: single-instrument strategies falsified → diversification produced one modest confirmed edge → every plausible extension of it systematically rejected at the cheapest stage → the same discipline carried into crypto microstructure. The deliverable is the judgment, not a Sharpe.
 
-**Currently:** MSc Data Science (Monash), targeting quantitative research roles. <你想放的联系方式/LinkedIn>
+**Currently:** MSc Data Science (Monash), targeting quantitative research roles. (https://www.linkedin.com/in/aaron-lau-b65b22224/)
