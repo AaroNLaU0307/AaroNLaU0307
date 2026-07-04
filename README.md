@@ -1,16 +1,18 @@
-## Hi there 👋
+# Aaron Lau — Quantitative Research
 
-<!--
-**AaroNLaU0307/AaroNLaU0307** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Falsification-first quant research. One confirmed edge; everything else honestly rejected — and I can tell you exactly why each one failed.
 
-Here are some ideas to get you started:
+**Research philosophy:** pre-register before looking · BH-FDR across every family · no-look-ahead proven by truncation-invariance tests · negative results reported with the same prominence as positives.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## The research arc
+
+| Project | What it is | Verdict |
+|---|---|---|
+| [multi-asset-tsmom-research](https://github.com/AaroNLaU0307/multi-asset-tsmom-research) | Multi-asset TSMOM (17 ETFs): confirmed core + 4 overlays + XSMOM counterpart | **Core CONFIRMED** (Sharpe 0.75, CI excludes 0) · all 5 extensions falsified, each with a mechanism |
+| [orderflow-research-engine](https://github.com/AaroNLaU0307/orderflow-research-engine) | Six classic order-flow signals on Binance BTC perps, pre-registered | 0/20 cells survive BH-FDR · OOS never opened |
+| [spot-mfi-btc-perp-research](https://github.com/AaroNLaU0307/spot-mfi-btc-perp-research) | Spot money-flow signals for BTC perps, two pre-registered studies | Both closed negative · PBO/CPCV corroboration |
+| [quant-backtest-framework](https://github.com/AaroNLaU0307/quant-backtest-framework) | The origin: SMC/breakout on XAUUSD + the validation machinery | Falsified — the lesson that started the discipline |
+
+The arc in one line: single-instrument strategies falsified → diversification produced one modest confirmed edge → every plausible extension of it systematically rejected at the cheapest stage → the same discipline carried into crypto microstructure. The deliverable is the judgment, not a Sharpe.
+
+**Currently:** MSc Data Science (Monash), targeting quantitative research roles. <你想放的联系方式/LinkedIn>
