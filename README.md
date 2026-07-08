@@ -23,4 +23,4 @@ Falsification-first quant research. One confirmed edge; everything else honestly
 
 Data-defect catches, found by watching output rather than by a passing test: a Binance archive gap (2022-09-06) and a same-ID/revised-quantity aggTrades mismatch, both in orderflow-research-engine; a gold-calibrated absolute-price constant silently producing −25R/trade on EURUSD in quant-backtest-framework.
 
-**Currently:** MSc Data Science (Monash), targeting quantitative research roles. 1st place, Kaggle regression competition ("Predict Happiness"). (https://www.linkedin.com/in/aaron-lau-b65b22224/)
+**Currently:** MSc Data Science (Monash), targeting quantitative research roles. (https://www.linkedin.com/in/aaron-lau-b65b22224/)
