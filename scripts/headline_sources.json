@@ -1,11 +1,11 @@
 {
   "owner": "AaroNLaU0307",
   "commits": {
-    "multi-asset-tsmom-research": "487a50ccdd2d0bd9eebf0911215f3ff839728a27",
-    "quant-backtest-framework": "0bc1302f57450d6f9a18b0190af243d40b96bf20",
-    "orderflow-research-engine": "f0549a26c10c87571aa5ca03b762523d24214771",
-    "spot-mfi-btc-perp-research": "670e832606672c5e682ad02d14e4b75ed927ebb9",
-    "commodity-carry-research": "c90df8e85f0962f729eb083aa5c4b20cb2d84334",
+    "multi-asset-tsmom-research": "e7e2592d0caa10f32db1a1fb05245bec2368e165",
+    "quant-backtest-framework": "631f33d26a5b79e835b73061b3ef228c18b90a18",
+    "orderflow-research-engine": "3b491114be37f1cf3abfacb6445a18c122d22d82",
+    "spot-mfi-btc-perp-research": "36cec00e828e6237fc7dfc42a522abb28537ccda",
+    "commodity-carry-research": "acbee64ee7dd7df11d1a44403b038945bf0439d6",
     "semiconductor-yield-screening": "702286ad450d7ee9471bea4fbf18bdc4a7ba8d13"
   },
   "archive": [
