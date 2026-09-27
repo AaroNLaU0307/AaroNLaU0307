@@ -185,3 +185,40 @@ These were found during the work and are disclosed in each repo:
 - 1 deferred: 47.
 
 Code-complete items whose numbers wait on a re-run count as done for this phase: 2, 3, 5, 6, 7, 26, 40, 41, 50.
+
+## Phase 3: merge
+
+**Date:** 2026-09-27.
+**What was done:** I fast-forwarded each repo's default branch to its `claude/audit-fixes` head (`git merge --ff-only`) and pushed it with a plain `git push`. There were no merge commits, rebases, amends or force-pushes, and no pull requests. Every default branch was still at the Phase 2 base commit, so every fast-forward went through, and all commit hashes are unchanged. The `claude/audit-fixes` and `claude/repo-audit` branches are left in place.
+
+**Local suite on the merged default branch (REPRODUCED).** Each suite ran in a fresh `uv` venv built from the repo's pinned `requirements.txt`, on the Python version it declares:
+
+| Repo | Default | Base → merged head | Python | Local result |
+|---|---|---|---|---|
+| multi-asset-tsmom-research | `main` | `b8404e7` → `e7e2592d0caa10f32db1a1fb05245bec2368e165` | 3.13 | 169 passed; CI extension suites 94 passed, 2 skipped |
+| commodity-carry-research | `main` | `f0847d7` → `acbee64ee7dd7df11d1a44403b038945bf0439d6` | 3.13 | 168 passed |
+| semiconductor-yield-screening | `main` | `d64e644` → `702286ad450d7ee9471bea4fbf18bdc4a7ba8d13` | 3.11 | 78 passed; em-dash check clean |
+| spot-mfi-btc-perp-research | `main` | `a90add7` → `36cec00e828e6237fc7dfc42a522abb28537ccda` | 3.13 and 3.12 | 111 passed on each |
+| orderflow-research-engine | `master` | `e10c588` → `3b491114be37f1cf3abfacb6445a18c122d22d82` | 3.13 | 124 passed, 7 skipped (full suite); 124 passed, 7 deselected (the CI selection, `-m "not data"`) |
+| quant-backtest-framework | `main` | `ad6df24` → `631f33d26a5b79e835b73061b3ef228c18b90a18` | 3.13 | 161 passed, 9 skipped (each skip is "seeded cache not present") |
+| AaroNLaU0307 (profile) | `main` | `7f4f734` → `5a52286d8775a4422ce207369f7899c232d34936` | n/a | `render_readme.py --check` passed, both from GitHub and with `--local-root` |
+
+**CI on the default branch.** This is the first run on `main`/`master` for these changes.
+
+| Repo | Run | Conclusion |
+|---|---|---|
+| multi-asset-tsmom-research | https://github.com/AaroNLaU0307/multi-asset-tsmom-research/actions/runs/36310108987 | success |
+| commodity-carry-research | https://github.com/AaroNLaU0307/commodity-carry-research/actions/runs/36310157598 | success |
+| semiconductor-yield-screening | https://github.com/AaroNLaU0307/semiconductor-yield-screening/actions/runs/36310351901 | success |
+| spot-mfi-btc-perp-research | https://github.com/AaroNLaU0307/spot-mfi-btc-perp-research/actions/runs/36310398744 | success (the Ubuntu/Windows/macOS × 3.12/3.13 matrix) |
+| orderflow-research-engine | https://github.com/AaroNLaU0307/orderflow-research-engine/actions/runs/36310481953 | success |
+| quant-backtest-framework | https://github.com/AaroNLaU0307/quant-backtest-framework/actions/runs/36310555889 | success |
+| AaroNLaU0307 (profile) | no workflow in the repo | n/a |
+
+**CI fixes:** none were needed. Every run was green on the first attempt, and no test, workflow, skip condition, number or document was changed.
+
+**Profile links.** `scripts/render_readme.py` has no link check, so I extracted every link from `README.md` and fetched each with `curl -L`. All 37 unique URLs returned 200. (Phase 2 counted 34 links in the generated table; the 37 includes links outside it.) No HTML or reference-style links exist.
+
+**One ordering note.** I pushed the profile `main` while the quant-backtest-framework CI run was still in progress. Its local suite and `--check` had already passed, and the run finished green a few minutes later. Nothing depended on that ordering, because the profile pins commit hashes, not branch heads.
+
+**Still open:** the owner decisions and re-runs listed under Phase 2 "Handoff". Phase 3 changes none of them.
