@@ -1,0 +1,28 @@
+{
+  "owner": "AaroNLaU0307",
+  "commits": {
+    "multi-asset-tsmom-research": "487a50ccdd2d0bd9eebf0911215f3ff839728a27",
+    "quant-backtest-framework": "0bc1302f57450d6f9a18b0190af243d40b96bf20",
+    "orderflow-research-engine": "f0549a26c10c87571aa5ca03b762523d24214771",
+    "spot-mfi-btc-perp-research": "670e832606672c5e682ad02d14e4b75ed927ebb9",
+    "commodity-carry-research": "c90df8e85f0962f729eb083aa5c4b20cb2d84334",
+    "semiconductor-yield-screening": "702286ad450d7ee9471bea4fbf18bdc4a7ba8d13"
+  },
+  "archive": [
+    ["multi-asset-tsmom-research", "tsmom-core"],
+    ["quant-backtest-framework", "mtf-smc-replication"],
+    ["multi-asset-tsmom-research", "crash-defense"],
+    ["multi-asset-tsmom-research", "vol-breakout"],
+    ["multi-asset-tsmom-research", "seasonality"],
+    ["multi-asset-tsmom-research", "yield-curve"],
+    ["multi-asset-tsmom-research", "xsmom"],
+    ["orderflow-research-engine", "orderflow-footprint"],
+    ["spot-mfi-btc-perp-research", "spot-mfi"],
+    ["spot-mfi-btc-perp-research", "variant-a"],
+    ["commodity-carry-research", "xs-carry"],
+    ["commodity-carry-research", "ts-carry"]
+  ],
+  "other": [
+    ["semiconductor-yield-screening", "semiconductor-yield-screening"]
+  ]
+}
