@@ -222,3 +222,38 @@ Code-complete items whose numbers wait on a re-run count as done for this phase:
 **One ordering note.** I pushed the profile `main` while the quant-backtest-framework CI run was still in progress. Its local suite and `--check` had already passed, and the run finished green a few minutes later. Nothing depended on that ordering, because the profile pins commit hashes, not branch heads.
 
 **Still open:** the owner decisions and re-runs listed under Phase 2 "Handoff". Phase 3 changes none of them.
+
+## Phase 4: re-runs
+
+**Date:** 2026-09-28.
+**What was done:** the owner re-ran the two studies whose engine or data pipeline changed in Phase 2, on the machine that holds the licensed data, and pushed each re-run as a branch `rerun/2026-09-27`. The reviewing session accepted both. I fast-forwarded each default branch to that branch (`git merge --ff-only`) and pushed it with a plain `git push`. Both default branches were still at their Phase 3 heads, so both fast-forwards went through. Then I removed every sentence that still called either result pre-fix or pending, and re-pinned the profile. There were no merge commits, rebases, amends or force-pushes, no pull requests, and no deleted branches; the `rerun/2026-09-27` branches are left in place. No research number changed beyond those the re-run branches carry.
+
+**Verdicts (from each repo's `results/headline.json`, REASONED):**
+- quant-backtest-framework: **FALSIFIED**, held. 0/210 cross-instrument BH-FDR survivors, 0/42 configs positive-and-significant on two or more instruments; L1 walk-forward pooled OOS E[R] −0.339 → −0.329 R, window-block CI [−0.416, −0.228], 11/12 calendar periods negative (one-sided p = 0.0032). Artifacts commit `10ee563`. The gold study's one-time 2023–2025 OOS figure predates the fix and is not recomputed, by design; the headline caveats say so.
+- commodity-carry-research: **NOT PROMOTED**, held. H1 net Sharpe −0.003 → 0.059, 95% CI [−0.41, 0.52], 0/9 registered variants reach the 0.30 gate. H2 now closes at the sign-only premise gate (coefficient −0.000143, t = −0.07), so no backtest was run. Artifacts commit `8d637a6`.
+
+**Merge and CI (REPRODUCED).** Each suite ran in a fresh `uv` venv on Python 3.13, from the repo's pinned `requirements.txt`.
+
+| Repo | Default | Phase 3 head → merged head | Local suite | CI on the merged head |
+|---|---|---|---|---|
+| quant-backtest-framework | `main` | `631f33d` → `bc4095c06344c7e2b2a23813f6e42299cb721261` | 166 passed, 9 skipped | https://github.com/AaroNLaU0307/quant-backtest-framework/actions/runs/36450396243 success |
+| commodity-carry-research | `main` | `acbee64` → `9071e18f0a60f6a3632df64c42dd2dcff17c065a` | 172 passed, 1 skipped | https://github.com/AaroNLaU0307/commodity-carry-research/actions/runs/36450547843 success |
+
+Every skip needs licensed data or a seeded cache. No CI fix was needed.
+
+**Stale qualifiers.** I searched every `.md` and `.json` in the four repos for "pending", "predate", "pre-fix" and "before the 2026-09-27", and judged each hit.
+
+| Repo | Commit | What changed | CI |
+|---|---|---|---|
+| multi-asset-tsmom-research | `66d8cfeb153912ab80997f29b50f0e7c5c840e3a` | `README.md` related-research entry for quant-backtest-framework; `STUDY_SUMMARY.md` intro and "Across projects" bullet. Each now states the held verdict and links the re-run artifact (`results/headline.json`, `output/grid/master_table.csv`) | https://github.com/AaroNLaU0307/multi-asset-tsmom-research/actions/runs/36450808977 success (local: 169 passed; extension suites 94 passed, 2 skipped) |
+| orderflow-research-engine | `c3807e91998864ea0a272adbb302c72d9efca4c8` | `README.md` related-research entry for quant-backtest-framework | https://github.com/AaroNLaU0307/orderflow-research-engine/actions/runs/36450934476 success (local: 124 passed, 7 deselected) |
+| commodity-carry-research | `e710a353a5ec2e7cff5da8d8a1cf3f97a0c4fdef` | `README.md` related-research entry for quant-backtest-framework (found by the search; not in the brief's list) | https://github.com/AaroNLaU0307/commodity-carry-research/actions/runs/36450839212 success (local: 172 passed, 1 skipped) |
+| quant-backtest-framework | none | The re-run branch had already updated its living documents. What remains is the dated addendum (history), `RERUN_RUNBOOK.md` (instructions), and accurate caveats that the one-time OOS figure and the legacy-fidelity comparison predate the fix | n/a |
+
+**Left as they are, on purpose:**
+- **Dated history.** Both repos' `ADDENDUM_2026-09-27.md` state the pending status as it stood that day, with the re-run appended as its own dated section (qbf §11–12, commodity §10). Also left: `preregistration/`, the decision logs, and commodity's Phase 1 data reports, whose "pending" items are unrelated ledger or QA entries.
+- **tsmom planning records.** `research/extensions/TSMOM_EXTENSION_RESEARCH_MAP.md` and `_v2.md`, and `research/extensions/diagnostics/EDGE_DIAGNOSTICS.md`, quote the published commodity figure (net Sharpe −0.003). They are dated planning and diagnostic records inside that repo's sealed research lineage. They do not describe anything as pending, so updating them would rewrite the lineage.
+
+**Profile.** `scripts/headline_sources.json` now pins quant-backtest-framework at `bc4095c` and commodity-carry-research at `9071e18`, whose `source_commit`s are `10ee563` and `8d637a6`. The re-rendered table has the re-run figures, no ‡ mark, and the time-series carry row reads "closed at the sign-only premise gate". `render_readme.py` now prints the ‡ legend sentence only when a rendered stat carries ‡, so the legend no longer says a re-run is pending. `--check` passes. I also updated two living texts that described the re-runs as outstanding: the audit-record line in `README.md` and the "What is still open" paragraph of `audit/README.md`. All 39 unique GitHub URLs in `README.md` returned 200 with `curl -L`. To check the spot and semiconductor links, I attached those two repos read-only, because the session proxy returns 403 for repos not attached to it. Nothing in those two repos was changed.
+
+**Still open:** the Phase 2 handoff items other than the re-runs (item 13, the owner-machine artifacts, the spot decision-log trim, and the commodity N_trials choice). The orderflow OOS-guard note also stands.
