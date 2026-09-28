@@ -36,7 +36,9 @@ ingestion did not fix the order of same-millisecond trades; the rebuild is prove
 parquet is the authority. `phase3_sensitivity_stage.py` re-ingests raw zips, so a future run may
 shift two sensitivity configs slightly. TSMOM's `PROJECT_STATE.md` and `qros-state.yaml` stay at
 the repository root because sealed records pin them there. The spot decision-log lines stay as
-written, by owner decision.
+written, by owner decision. The commodity trial count is settled at N_trials = 16, counting the
+lag-1 execution sensitivity as registered trials (delegate decision, 2026-09-27); the DSR
+threshold at 14 is reported beside it in that repo's addendum for comparison.
 
 Findings here are stated as they were found. Where a claim in a repository turned out to be
 wrong, the repository now says so; this record is not softened after the fact.
