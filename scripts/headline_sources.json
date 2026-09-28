@@ -1,10 +1,10 @@
 {
   "owner": "AaroNLaU0307",
   "commits": {
-    "multi-asset-tsmom-research": "e7e2592d0caa10f32db1a1fb05245bec2368e165",
+    "multi-asset-tsmom-research": "408e2dfb07cf31a1bc878ab182dc79f83bfe8e7f",
     "quant-backtest-framework": "bc4095c06344c7e2b2a23813f6e42299cb721261",
-    "orderflow-research-engine": "3b491114be37f1cf3abfacb6445a18c122d22d82",
-    "spot-mfi-btc-perp-research": "36cec00e828e6237fc7dfc42a522abb28537ccda",
+    "orderflow-research-engine": "a5182cc71605d703baaf1557bb6e65c4921a5e20",
+    "spot-mfi-btc-perp-research": "d52c931d88f8f038d06f5d49c49d862766320b09",
     "commodity-carry-research": "9071e18f0a60f6a3632df64c42dd2dcff17c065a",
     "semiconductor-yield-screening": "702286ad450d7ee9471bea4fbf18bdc4a7ba8d13"
   },
